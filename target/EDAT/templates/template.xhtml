@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="jquery.min.js" />
+</h:head>
+
+<h:body>
+	<div class="container-fluid" style=" box-shadow: inset 0 -15px 15px -15px black;">
+		<div class="row">
+			<ui:insert name="header">
+				<ui:include src="/templates/header.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+	</div>
+	<div class="container" style="box-shadow: 10px 10px 5px #888888;">
+		<div class="row">
+			<div class="col-sm-3 col-md-3" style="background-color: green;">
+				<ui:insert name="sideMenu">
+					<ui:include src="/templates/sideMenu.xhtml"></ui:include>
+				</ui:insert>
+
+			</div>
+			<div class="col-md-9 col-md-9" style="background-color: pink;">
+				<ui:insert name="content">
+					<ui:include src="/templates/content.xhtml"></ui:include>
+				</ui:insert>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid" style="box-shadow: 10px 10px 5px #888888;">
+		<div class="row">
+			<ui:insert name="footer">
+				<ui:include src="/templates/footer.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+
+</html>
