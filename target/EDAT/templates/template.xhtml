@@ -12,33 +12,38 @@
 </h:head>
 
 <h:body>
-	<div class="container-fluid" style=" box-shadow: inset 0 -15px 15px -15px black;">
-		<div class="row">
-			<ui:insert name="header">
-				<ui:include src="/templates/header.xhtml"></ui:include>
-			</ui:insert>
-		</div>
-	</div>
-	<div class="container" style="box-shadow: 10px 10px 5px #888888;">
-		<div class="row">
-			<div class="col-sm-3 col-md-3" style="background-color: green;">
-				<ui:insert name="sideMenu">
-					<ui:include src="/templates/sideMenu.xhtml"></ui:include>
+	<div class="container-fluid"
+		style="box-shadow: inset 0 -15px 15px -15px black;">
+		<div class="row" id="header_container">
+			<div id="head">
+				<ui:insert name="header">
+					<ui:include src="/templates/header.xhtml"></ui:include>
 				</ui:insert>
+			</div>
+		</div>
 
-			</div>
-			<div class="col-md-9 col-md-9" style="background-color: pink;">
-				<ui:insert name="content">
-					<ui:include src="/templates/content.xhtml"></ui:include>
-				</ui:insert>
+		<div class="row" id="content_container">
+			<div id="content">
+				<div class="col-sm-3 col-md-3" style="background-color: green;">
+					<ui:insert name="sideMenu">
+						<ui:include src="/templates/sideMenu.xhtml"></ui:include>
+					</ui:insert>
+
+				</div>
+				<div class="col-md-9 col-md-9" style="background-color: pink;">
+					<ui:insert name="content">
+						<ui:include src="/templates/content.xhtml"></ui:include>
+					</ui:insert>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container-fluid" style="box-shadow: 10px 10px 5px #888888;">
-		<div class="row">
-			<ui:insert name="footer">
-				<ui:include src="/templates/footer.xhtml"></ui:include>
-			</ui:insert>
+
+		<div class="row" id="footer_container">
+			<div id="foot">
+				<ui:insert name="footer">
+					<ui:include src="/templates/footer.xhtml"></ui:include>
+				</ui:insert>
+			</div>
 		</div>
 	</div>
 </h:body>
