@@ -171,9 +171,9 @@ a:focus, a:hover, a:active {
 }
 
 #head {
-	line-height: 60px;
+	height:100%;
+	
 	margin: 0 auto;
-	width: 940px;
 	text-align: center;
 }
 
@@ -182,11 +182,10 @@ a:focus, a:hover, a:active {
 	margin: 0 auto;
 	overflow: auto;
 	padding: 80px 0;
-	width: 940px;
 }
 
 #content {
-	
+	width: 100%;
 }
 
 /* Make Footer Sticky */
@@ -203,6 +202,5 @@ a:focus, a:hover, a:active {
 #foot {
 	line-height: 60px;
 	margin: 0 auto;
-	width: 940px;
 	text-align: center;
 }

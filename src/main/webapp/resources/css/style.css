@@ -171,7 +171,8 @@ a:focus, a:hover, a:active {
 }
 
 #head {
-	line-height: 60px;
+	height:100%;
+	
 	margin: 0 auto;
 	text-align: center;
 }
