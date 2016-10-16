@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<meta charset="UTF-8" />
 	<title>Insert title here</title>
@@ -15,83 +16,100 @@
 <h:body>
 	<ui:composition template="templates/template.xhtml">
 		<ui:define name="content">
+			<h:form>
+				<div id="contentContainer">
+					<div id="content">
+						<div class="row">
+							<div class="col-md-12 col-sm-12">
+								<h3>Default collapse with scaling icon</h3>
+								<div class="panel-group wrap" id="bs-collapse">
 
-			<div id="contentContainer">
-				<div id="content">
-					<div class="row">
-						<div class="col-md-12 col-sm-12">
-							<h3>Default collapse with scaling icon</h3>
-							<div class="panel-group wrap" id="bs-collapse">
+									<div class="panel">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#" href="#one">
+													Collapse item #1 </a>
+											</h4>
+										</div>
+										<div id="one" class="panel-collapse collapse in">
+											<div class="panel-body">
+												<h:panelGrid columns="3">
+													<h:outputText value="Enter Name: " for="username" />
+													<h:inputText id="username" value="#{formBean.username}"
+														validatorMessage="Name should be min 6 char long and max 10 char long">
+														<f:validator validatorId="com.principal.validators.DateValidator" />
+													</h:inputText>
+													<h:message for="username"></h:message>
+													<h:outputText value="Enter Name: " for="password" />
+													<h:inputSecret id="password" value="#{formBean.password}"
+														validatorMessage="Name should be min 6 char long and max 10 char long">
+														<f:validateLength minimum="6" maximum="10" />
+													</h:inputSecret>
+													<h:message for="password"></h:message>
+												</h:panelGrid>
+											</div>
+										</div>
 
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#one">
-												Collapse item #1 </a>
-										</h4>
 									</div>
-									<div id="one" class="panel-collapse collapse in">
-										<div class="panel-body">Where now are the horse and the
-											rider? Where is the horn that was blowing? Where is the helm
-											and the hauberk, and the bright hair flowing?</div>
+									<!-- end of panel -->
+
+									<div class="panel">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#" href="#two">
+													Collapse item #2 </a>
+											</h4>
+										</div>
+										<div id="two" class="panel-collapse collapse">
+											<div class="panel-body">Where is the harp on the
+												harpstring, and the red fire glowing? Where is the spring
+												and the harvest and the tall corn growing?</div>
+
+										</div>
 									</div>
+									<!-- end of panel -->
+
+									<div class="panel">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#" href="#three">
+													Collapse item #3 </a>
+											</h4>
+										</div>
+										<div id="three" class="panel-collapse collapse">
+											<div class="panel-body">The days have gone down in the
+												West behind the hills into shadow. Who shall gather the
+												smoke of the deadwood burning, Or behold the flowing years
+												from the Sea returning?</div>
+										</div>
+									</div>
+									<!-- end of panel -->
+
+									<div class="panel">
+										<div class="panel-heading">
+											<h4 class="panel-title">
+												<a data-toggle="collapse" data-parent="#" href="#four">
+													Collapse item #4 </a>
+											</h4>
+										</div>
+										<div id="four" class="panel-collapse collapse">
+											<div class="panel-body">They have passed like rain on
+												the mountain, like a wind in the meadow; The days have gone
+												down in the West behind the hills into shadow.</div>
+										</div>
+									</div>
+									<!-- end of panel -->
 
 								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#two">
-												Collapse item #2 </a>
-										</h4>
-									</div>
-									<div id="two" class="panel-collapse collapse">
-										<div class="panel-body">Where is the harp on the
-											harpstring, and the red fire glowing? Where is the spring and
-											the harvest and the tall corn growing?</div>
-
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#three">
-												Collapse item #3 </a>
-										</h4>
-									</div>
-									<div id="three" class="panel-collapse collapse">
-										<div class="panel-body">The days have gone down in the
-											West behind the hills into shadow. Who shall gather the smoke
-											of the deadwood burning, Or behold the flowing years from the
-											Sea returning?</div>
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#four">
-												Collapse item #4 </a>
-										</h4>
-									</div>
-									<div id="four" class="panel-collapse collapse">
-										<div class="panel-body">They have passed like rain on
-											the mountain, like a wind in the meadow; The days have gone
-											down in the West behind the hills into shadow.</div>
-									</div>
-								</div>
-								<!-- end of panel -->
-
+								<!-- end of #bs-collapse  -->
 							</div>
-							<!-- end of #bs-collapse  -->
 						</div>
 					</div>
 				</div>
-			</div>
+				<h:panelGrid columns="2">
+					<h:commandButton value="Submit" action="index.xhtml"></h:commandButton>
+				</h:panelGrid>
+			</h:form>
 			<script
 				src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 			<script
