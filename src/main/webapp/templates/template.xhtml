@@ -5,10 +5,18 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
 	<title><ui:insert name="title">Default title</ui:insert></title>
+	<h:outputScript library="js" name="jquery.min.js" />
 	<h:outputStylesheet library="css" name="style.css" />
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<h:outputScript library="js" name="bootstrap.js" />
-	<h:outputScript library="js" name="jquery.min.js" />
+
+	<ui:insert name="customJS"></ui:insert>
+	<!-- <h:outputScript library="js" name="jquery.ui.js" />
+	<h:outputScript>
+		$(document).ready(function() {
+			$("#datepicker").datepicker();
+		});
+	</h:outputScript> -->
 </h:head>
 
 <h:body>
@@ -24,13 +32,15 @@
 
 		<div class="row" id="content_container">
 			<div id="content">
-				<div class="col-xs-12 col-sm-12 col-md-3" style="background-color: green;">
+				<div class="col-xs-12 col-sm-12 col-md-3"
+					style="background-color: green;">
 					<ui:insert name="sideMenu">
 						<ui:include src="/templates/sideMenu.xhtml"></ui:include>
 					</ui:insert>
 
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-9" style="background-color: pink;">
+				<div class="col-xs-12 col-sm-12 col-md-9"
+					style="background-color: pink;">
 					<ui:insert name="content">
 						<ui:include src="/templates/content.xhtml"></ui:include>
 					</ui:insert>
