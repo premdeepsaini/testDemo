@@ -16,14 +16,7 @@
 			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
 		<h:outputScript library="js" name="jquery.ui.js"></h:outputScript>
-		<h:outputScript>
-		$( function() {
-    $( "#datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true
-    });
-  } );
-	</h:outputScript>
+
 	</ui:define>
 	<ui:define name="content">
 		<h:form prependId="false">
@@ -42,85 +35,64 @@
 										</h4>
 									</div>
 									<div id="one" class="panel-collapse collapse in">
-										<div class="panel-body">
+										<div class="panel-body" id="prorJobDetails">
 											<div class="row form-group">
 												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
-													value="Enter Name: " for="username" />
+													value="New Organization: " for="newOrganization" />
 												<div class="col-md-4 col-sm-4 col-xs-12">
 													<h:inputText
 														styleClass="form-control col-md-4 col-sm-4 col-xs-12 "
-														id="username" value="#{formBean.username}" placeholder="dd/mm/yyyy">
-														<f:convertDateTime pattern="dd/mm/yyyy" />
-														<f:validator validatorId="DateValidator" />
+														id="newOrganization"
+														value="#{formBean.priorJob.newOrganization}">
+
 													</h:inputText>
 												</div>
 												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
-													for="username"></h:message>
+													for="newOrganization"></h:message>
 											</div>
 											<div class="row form-group">
 												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
-													value="Enter Password: " for="datepicker" />
+													value="Designation: " for="designation" />
 												<div class="col-md-4 col-sm-4 col-xs-12">
-													<h:inputText styleClass="form-control" id="datepicker"
-														value="#{formBean.password}" placeholder="dd/mm/yyyy">
-														<f:validator validatorId="DateValidator" />
+													<h:inputText styleClass="form-control" id="designation"
+														value="#{formBean.priorJob.designation}">
+
 													</h:inputText>
 												</div>
 												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
-													for="datepicker"></h:message>
+													for="designation"></h:message>
 											</div>
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="Months: " for="tenureMonth" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText styleClass="form-control" id="tenureMonth"
+														value="#{formBean.priorJob.tenureMonth}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="tenureMonth"></h:message>
+											</div>
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="Year: " for="tenureYear" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText styleClass="form-control" id="tenureYear"
+														value="#{formBean.priorJob.tenureYear}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="tenureYear"></h:message>
+											</div>
+											<h:button onclick="addNewRow()" value="Add new row" />
 										</div>
 									</div>
 
 								</div>
 								<!-- end of panel -->
 
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#two">
-												Collapse item #2 </a>
-										</h4>
-									</div>
-									<div id="two" class="panel-collapse collapse">
-										<div class="panel-body">Where is the harp on the
-											harpstring, and the red fire glowing? Where is the spring and
-											the harvest and the tall corn growing?</div>
-
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#three">
-												Collapse item #3 </a>
-										</h4>
-									</div>
-									<div id="three" class="panel-collapse collapse">
-										<div class="panel-body">The days have gone down in the
-											West behind the hills into shadow. Who shall gather the smoke
-											of the deadwood burning, Or behold the flowing years from the
-											Sea returning?</div>
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#four">
-												Collapse item #4 </a>
-										</h4>
-									</div>
-									<div id="four" class="panel-collapse collapse">
-										<div class="panel-body">They have passed like rain on
-											the mountain, like a wind in the meadow; The days have gone
-											down in the West behind the hills into shadow.</div>
-									</div>
-								</div>
-								<!-- end of panel -->
 
 							</div>
 							<!-- end of #bs-collapse  -->
@@ -129,10 +101,11 @@
 				</div>
 			</div>
 			<h:panelGrid columns="2">
-				<h:commandButton value="Submit" action="index.xhtml"></h:commandButton>
+				<h:commandButton value="Submit" action="#{formBean.submit}"></h:commandButton>
+				<h:commandButton value="Clear" action="#{formBean.clear}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
-
+		<h:outputScript library="js" name="addPriorJob.js"></h:outputScript>
 
 	</ui:define>
 </ui:composition>

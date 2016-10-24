@@ -18,7 +18,7 @@ import javax.servlet.http.Part;
 public class FileUploadMBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Part file1;
-	// private Part file2;
+	private Part file2;
 	private String message;
 
 	public Part getFile1() {
@@ -28,14 +28,14 @@ public class FileUploadMBean implements Serializable {
 	public void setFile1(Part file1) {
 		this.file1 = file1;
 	}
-//
-//	public Part getFile2() {
-//		return file2;
-//	}
-//
-//	public void setFile2(Part file2) {
-//		this.file2 = file2;
-//	}
+
+	public Part getFile2() {
+		return file2;
+	}
+
+	public void setFile2(Part file2) {
+		this.file2 = file2;
+	}
 
 	public String getMessage() {
 		return message;
@@ -51,7 +51,7 @@ public class FileUploadMBean implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ServletContext servletContext = (ServletContext) context.getExternalContext().getContext();
 		String path = servletContext.getRealPath("");
-		System.out.println("---------------"+path+"-----------------");
+		System.out.println("---------------" + path + "-----------------");
 		boolean file1Success = false;
 		if (file1.getSize() > 0) {
 			String fileName = Utils.getFileNameFromPart(file1);
@@ -74,25 +74,25 @@ public class FileUploadMBean implements Serializable {
 			}
 			file1Success = true;
 		}
-//		boolean file2Success = false;
-//		if (file2.getSize() > 0) {
-//			String fileName = Utils.getFileNameFromPart(file2);
-//			File outputFile = new File(path + fileName);
-//			inputStream = file2.getInputStream();
-//			outputStream = new FileOutputStream(outputFile);
-//			byte[] buffer = new byte[1024];
-//			int bytesRead = 0;
-//			while ((bytesRead = inputStream.read(buffer)) != -1) {
-//				outputStream.write(buffer, 0, bytesRead);
-//			}
-//			if (outputStream != null) {
-//				outputStream.close();
-//			}
-//			if (inputStream != null) {
-//				inputStream.close();
-//			}
-//			file2Success = true;
-//		}
+		 boolean file2Success = false;
+		 if (file2.getSize() > 0) {
+		 String fileName = Utils.getFileNameFromPart(file2);
+		 File outputFile = new File(path + fileName);
+		 inputStream = file2.getInputStream();
+		 outputStream = new FileOutputStream(outputFile);
+		 byte[] buffer = new byte[1024];
+		 int bytesRead = 0;
+		 while ((bytesRead = inputStream.read(buffer)) != -1) {
+		 outputStream.write(buffer, 0, bytesRead);
+		 }
+		 if (outputStream != null) {
+		 outputStream.close();
+		 }
+		 if (inputStream != null) {
+		 inputStream.close();
+		 }
+		 file2Success = true;
+		 }
 		if (file1Success) {
 			System.out.println("File uploaded to : " + path);
 			/**

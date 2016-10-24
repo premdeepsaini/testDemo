@@ -14,25 +14,12 @@
 			name="https://fonts.googleapis.com/icon?family=Material+Icons" />
 		<link rel="stylesheet"
 			href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-		<link rel="stylesheet" href="/resources/demos/style.css" />
 
 		<h:outputScript library="js" name="jquery.ui.js"></h:outputScript>
-		<h:outputScript>
-		
-		$(document).ready(function() {
-			
-			$( "#datepicker" ).datepicker({
-      showOn: "button",
-      buttonImage: "/img/calendar.jpeg",
-      buttonImageOnly: true,
-      buttonText: "Select date"
-    });
-			console.log("After date picker");
-		});
-	</h:outputScript>
+
 	</ui:define>
 	<ui:define name="content">
-		<h:form>
+		<h:form prependId="false">
 			<div id="contentContainer">
 				<div id="content">
 					<div class="row">
@@ -48,70 +35,64 @@
 										</h4>
 									</div>
 									<div id="one" class="panel-collapse collapse in">
-										<div class="panel-body">
-											<h:panelGrid columns="3">
-												<h:outputText value="Enter Name: " for="username" />
-												<h:inputText id="username" value="#{formBean.username}">
-													<f:validator
-														validatorId="com.principal.validators.DateValidator" />
-												</h:inputText>
-												<h:message for="username"></h:message>
-												<h:outputText value="Enter Password: " for="datepicker" />
-												<h:inputText id="datepicker" value="#{formBean.password}" />
-												<h:message for="datepicker"></h:message>
-											</h:panelGrid>
+										<div class="panel-body" id="prorJobDetails">
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="New Organization: " for="newOrganization" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText
+														styleClass="form-control col-md-4 col-sm-4 col-xs-12 "
+														id="newOrganization"
+														value="#{formBean.priorJob.newOrganization}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="newOrganization"></h:message>
+											</div>
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="Designation: " for="designation" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText styleClass="form-control" id="designation"
+														value="#{formBean.priorJob.designation}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="designation"></h:message>
+											</div>
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="Months: " for="tenureMonth" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText styleClass="form-control" id="tenureMonth"
+														value="#{formBean.priorJob.tenureMonth}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="tenureMonth"></h:message>
+											</div>
+											<div class="row form-group">
+												<h:outputText styleClass="col-md-2 col-sm-2 col-xs-12"
+													value="Year: " for="tenureYear" />
+												<div class="col-md-4 col-sm-4 col-xs-12">
+													<h:inputText styleClass="form-control" id="tenureYear"
+														value="#{formBean.priorJob.tenureYear}">
+
+													</h:inputText>
+												</div>
+												<h:message styleClass="col-md-6 col-sm-6 col-xs-12"
+													for="tenureYear"></h:message>
+											</div>
+											<h:button onclick="addNewRow()" value="Add new row" />
 										</div>
 									</div>
 
 								</div>
 								<!-- end of panel -->
 
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#two">
-												Collapse item #2 </a>
-										</h4>
-									</div>
-									<div id="two" class="panel-collapse collapse">
-										<div class="panel-body">Where is the harp on the
-											harpstring, and the red fire glowing? Where is the spring and
-											the harvest and the tall corn growing?</div>
-
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#three">
-												Collapse item #3 </a>
-										</h4>
-									</div>
-									<div id="three" class="panel-collapse collapse">
-										<div class="panel-body">The days have gone down in the
-											West behind the hills into shadow. Who shall gather the smoke
-											of the deadwood burning, Or behold the flowing years from the
-											Sea returning?</div>
-									</div>
-								</div>
-								<!-- end of panel -->
-
-								<div class="panel">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#" href="#four">
-												Collapse item #4 </a>
-										</h4>
-									</div>
-									<div id="four" class="panel-collapse collapse">
-										<div class="panel-body">They have passed like rain on
-											the mountain, like a wind in the meadow; The days have gone
-											down in the West behind the hills into shadow.</div>
-									</div>
-								</div>
-								<!-- end of panel -->
 
 							</div>
 							<!-- end of #bs-collapse  -->
@@ -120,10 +101,11 @@
 				</div>
 			</div>
 			<h:panelGrid columns="2">
-				<h:commandButton value="Submit" action="index.xhtml"></h:commandButton>
+				<h:commandButton value="Submit" action="#{formBean.submit}"></h:commandButton>
+				<h:commandButton value="Clear" action="#{formBean.clear}"></h:commandButton>
 			</h:panelGrid>
 		</h:form>
-
+		<h:outputScript library="js" name="addPriorJob.js"></h:outputScript>
 
 	</ui:define>
 </ui:composition>

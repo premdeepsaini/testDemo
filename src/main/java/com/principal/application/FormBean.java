@@ -2,11 +2,28 @@ package com.principal.application;
 
 import java.util.Date;
 
+import javax.annotation.PostConstruct;
+
 public class FormBean {
 
 	private String username;
 	private String password;
-	private Date date;
+
+	private PriorJob priorJob;
+
+//	@PostConstruct
+//	public void init() {
+//
+//		PriorJob priorJob = new PriorJob();
+//	}
+
+	public PriorJob getPriorJob() {
+		return priorJob;
+	}
+
+	public void setPriorJob(PriorJob priorJob) {
+		this.priorJob = priorJob;
+	}
 
 	public String getUsername() {
 		return username;
@@ -26,11 +43,16 @@ public class FormBean {
 		System.out.println(this.password);
 	}
 
-	public Date getDate() {
-		return date;
+	public String submit() {
+		System.out.println("==================================================================================");
+		System.out.println(username + "\t" + password + "\t" + this.username);
+		return "index";
+
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public String clear() {
+		setUsername(null);
+		setPassword(null);
+		return null;
 	}
 }

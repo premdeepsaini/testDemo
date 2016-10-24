@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:define name="content">
+			<h:form prependId="false">
+				<h2>Select and upload a file</h2>
+
+				<input type="file"
+					accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></input>
+
+				<div id="dynamic_input">
+					<input type="button" onclick="addNewRow()" value="Add New Row"></input>
+				</div>
+
+			</h:form>
+			<h:outputScript library="js" name="addRow.js"></h:outputScript>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -3,3 +3,4 @@ com/principal/validators/DateVatidator.class
 com/principal/application/Constants.class
 com/principal/application/Utils.class
 com/principal/application/FormBean.class
+com/principal/application/PriorJob.class
