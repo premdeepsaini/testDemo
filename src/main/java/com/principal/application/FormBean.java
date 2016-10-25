@@ -46,6 +46,9 @@ public class FormBean {
 	public String submit() {
 		System.out.println("==================================================================================");
 		System.out.println(username + "\t" + password + "\t" + this.username);
+		
+		
+		
 		return "index";
 
 	}
